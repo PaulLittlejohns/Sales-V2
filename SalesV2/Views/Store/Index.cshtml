@@ -1,0 +1,57 @@
+﻿@section scripts{
+    <script type="text/javascript" src="~/Services/StoreScript.js "></script>
+    <script>$(function () { GetStores(); })</script>
+}
+<h2>All Stores</h2>
+<div style="width:800px; margin-left:auto; margin-right:auto">
+    <button type="button" class="btn btn-success" onclick="ClickCreate()">Create</button>
+
+    <p>&nbsp;</p>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th bg="color: white">Id</th>
+                <th bg="color: white">Store Name</th>
+                <th bg="color: white">Store Price</th>
+                <th bgcolor="White" colspan="2" class="col-lg-1 col-centered"><p align="center">Action</p></th>
+            </tr>
+        </thead>
+        <tbody id="storetable"></tbody>
+    </table>
+</div>
+@*Model Start*@
+<div id="updatemodal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 id="modeltitle" class="modal-title"></h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <button type="button" class="btn btn-success" id="btnsave" onclick="SaveChanges()"></button>
+                    <div id="storeid" name="storeid" hidden="hidden"></div>
+                    <p>&nbsp;</p>
+                    <div>
+                        <h3 style="color:red">All fields must have a value</h3>
+                    </div>
+                    <p>&nbsp;</p>
+                    <div>
+                        <label>Name: </label>
+                        <input type="text" id="storename" name="storename" onchange="Validations()" style="width:400px">
+                        <span id="storemsg" style="color: red">Enter a Name</span>
+                    </div>
+                    <div>
+                        <label>Address: </label>
+                        <input type="text" id="storeaddress" name="storeaddress" onchange="Validations()" style="width:400px">
+                        <span id="addressmsg" style="color: red">Enter an Adddress </span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+@*Model End*@
